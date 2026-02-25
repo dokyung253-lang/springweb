@@ -8,6 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // @Component : @Controller @Service @RestController @Repository(DAO 대신) 등등 몇몇 어노테이션들은 내장됨
 public class AppStart {
     public static void main(String args[]) {
-        SpringApplication.run(practice.AppStart.class);
+        SpringApplication.run(AppStart.class);
     }
 }
