@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 // @Component // 빈 등록(싱글톤 대신)
 // @Controller // Http 통신 + 빈 등록                    = 사용처 : view(화면) 반환
 @RestController // ResponseBody + Http 통신 + 빈 등록    = 사용처 : 값(JSON) 반환
@@ -36,6 +38,42 @@ public class RestController3 {
         System.out.println("RestController3.method4");
         System.out.println("name = " + name + ", age = " + age);
         return 9;
+    }
+    // 5. http://localhost:8080/day02/task10?name=유재석&age=40
+    @DeleteMapping("/task10") // 만약에 여러 개 매개변수를 하나의 Map 타입으로 받을 수 있다.
+    public int method5(@RequestParam Map< String , Object> map){
+        System.out.println("RestController3.method5");
+        System.out.println("map = " + map); // map = {name=유재석. age=40}
+        return 10;
+    }
+    // 6. http://localhost:8080/day02/task11?name=유재석&age=40
+    @PostMapping("/task11")
+    public int method5(@ModelAttribute ExamDto examDto) {
+        System.out.println("RestController3.method5");
+        System.out.println("examDto = " + examDto);
+        return 11;
+    }
+    // 즉] url?매개변수=값   방식인 쿼리스트링은 URL 상 매개변수 노출이 된다.
+    // GET/DELETE -> 쿼리스트링 -> @RequesrParam/ @ModelAttribute #쿼리스트링을 받을 때
+    // POST/PUT -> Body본문(+ 쿼리스트링) -> @RequestBody #본문을 받을 때
+    // 즉2] URL 상의 매개변수 노출이 가리기 위한 BODY(본문) 사용하자.
+    //      개인정보/패스워드/민감한 정보들은 POST/PUT BODY(본문) 사용하자
+    // 예시) 편지를 부치고 배송될 때,  편지봉투 : 쿼리스트링, 편지지 : BODY
+    // 7.http://localhost:8080/day02/task12
+    // Body: {"name" : "유재석", "age" : 40}
+    // HTML -> JS -> JAVA( controller -> dao )
+    @PostMapping("/task12")
+    public int method12(@RequestBody ExamDto examDto){
+        System.out.println("RestController3.method12");
+        System.out.println("examDto = " + examDto);
+        return 12;
+    }
+    // 8.
+    @PutMapping("/task13")
+    public int method3( @RequestBody Map<String, Object> map){
+        System.out.println("RestController3.method3");
+        System.out.println("map = " + map);
+        return 13;
     }
 } // class end
 
