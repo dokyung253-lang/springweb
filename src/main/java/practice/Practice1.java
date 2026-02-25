@@ -20,12 +20,18 @@ public class Practice1 {
             3. Put 메소드 일때  : 보내온값의  / 2 를 해서 결과값을 응답하기 EX) 5
             4. Delete 메소드 일때  : 보내온값의  % 2 를 해서 결과값을 응답하기 EX) 0
 */
+    /*
+    서블릿 생성방법
+    1단계) HttpServlet으로 부터 상속받기
+    2단계) 서블릿클래스 위에 @WebServlet(), 서블릿의 주소 주입한다.
+    3단계)
+    */
 
   @WebServlet("/practice1")
   public class Servlet extends HttpServlet{
         boolean method(int param ){return true; }
 
-      @Override
+  /*    @Override
       public void init(ServletConfig config) throws ServletException {
           System.out.println("init함수 실행");
           super.init(config);
@@ -36,31 +42,43 @@ public class Practice1 {
           System.out.println("service함수 실행");
             super.service(req, resp);
       }
+    */ // 안해도 됨
 
-      @Override
-      protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-          System.out.println("Servlet.doGet");
-          int data = req.getParameter(10);    System.out.println("data ="+ data);
-            resp.getStatus().println();
-      }
-
+      // [1] C
       @Override
       protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          // 1. 보내온 값 가져오기 = 요청한 정보가 들어있는 매개변수 : HttpServletRequest req
           System.out.println("Servlet.doPost");
-          int data = req.getParameter(10);    System.out.println("data ="+ data);
-          resp.getStatus().println();
+          String value = req.getParameter("value"); // HT(Text)TP는 텍스트(문자)전송이 기본값이다.
+          int value2 = Integer.parseInt(value); // 타입변환, 스프링에서는 자동타입으로 해준다.
+          // 2.
+          resp.getWriter().println(value2 *2);
       }
 
+      // [2] R
+      @Override
+      protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+          int value2 = Integer.parseInt(req.getParameter("value")); // int a = ( (3+3) *2 )
+          // 2. 계산된 값을 반홚나다. = 요청한 클라이언트에게 계산결과를 응답한다.
+          resp.getWriter().println(value2 +2);
+      }
+
+      // [3] U
       @Override
       protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-          int data = req.getParameter(10);    System.out.println("data ="+ data);
-          resp.getStatus().println();
+          int value2 = Integer.parseInt(req.getParameter("value")); // int a = ( (3+3) *2 )
+          // 2. 계산된 값을 반홚나다. = 요청한 클라이언트에게 계산결과를 응답한다.
+          resp.getWriter().println(value2 /2);
       }
 
+      // [4] D
       @Override
       protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-          int data = req.getParameter(10);    System.out.println("data ="+ data);
-          resp.getStatus().println();
+          String value = req.getParameter("value"); // HT(Text)TP는 텍스트(문자)전송이 기본값이다.
+          int value2 = Integer.parseInt(value); // 타입변환, 스프링에서는 자동타입으로 해준다.
+          // 2.
+          resp.getWriter().println(value2 %2);
+
       }
   }
 
