@@ -17,5 +17,6 @@ public class AppStart {
         // 즉] 스프링환경 세팅이 AppStart에 연결된 상태이므로 AppStart클래스 실행
         // 클래스명.class : 클래스 정보(멤버/함수/상속/구현/생성자 등 호출)
         System.out.println("AppStart.class");
+
     }// main end
 }// class end
