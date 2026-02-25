@@ -68,7 +68,7 @@ public class RestController3 {
         System.out.println("examDto = " + examDto);
         return 12;
     }
-    // 8.
+    // 8. http://localhost:8080/day02/task13
     @PutMapping("/task13")
     public int method3( @RequestBody Map<String, Object> map){
         System.out.println("RestController3.method3");
