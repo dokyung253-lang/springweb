@@ -3,10 +3,7 @@ package example.day02.controller;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 // @Component // 빈 등록(싱글톤 대신)
 // @Controller // Http 통신 + 빈 등록                    = 사용처 : view(화면) 반환
@@ -22,6 +19,23 @@ public class RestController3 {
         // @RequestParam 이란? URL(웹주소) 안에 포함된 쿼리스트링 매개변수 값 가져오는 어노테이션 / *생략가능*
         System.out.println("RestController3.method2"); // sout+ m : 메소드명 출력 자동완성
         System.out.println("name = " + name + ", age = " + age); // sout+p : 메소드 매개변수 출력 자동완성
-        return 3;
+        return 7;
+    }
+    // 3.
+    @GetMapping ("/task8") // 만약에 쿼리스트링의 매개변수명과 자바의 매개변수명이 다르면 @RequestParam( name = "쿼리스트링매개변수명" )
+    public int method3(@RequestParam(required = false) String name, @RequestParam int age ){
+        System.out.println("RestController3.method3");
+        System.out.println("name = " + name + ", age = " + age);
+        return 8;
+    }
+    // 4. http://localhost:8080/day02/task9?name=유재석&age=40
+    @DeleteMapping ("/task9") // Get/Delete 메소드는 구조와 사용법이 동일하다.
+    public int method4( String name, @RequestParam(defaultValue = "19") int age){
+        // 만약에 @RequestMapping 생략해도 매개변수 매핑(연결) 가능하다.
+        // 만약에 쿼리스트링에 존재하지 않을 때 기본값으로 설정하기, @RequestParam( defaultValue = "초기값")
+        System.out.println("RestController3.method4");
+        System.out.println("name = " + name + ", age = " + age);
+        return 9;
     }
 } // class end
+
