@@ -30,4 +30,18 @@ public class RestController2 {
         map.put("유재석", 100); map.put("강호동",90);
         return map;
     }
-}
+    // 4. boolean 타입 반환하는 메소드
+    @GetMapping("/day02/task4") @ResponseBody // java boolean -> application/json
+    public boolean method4() {
+        return true;
+    }
+    // 5. DTO 타입 반환하는 메소드
+    @GetMapping("/day02/task5") @ResponseBody
+    public TaskDto method5(){
+        TaskDto taskDto = new TaskDto();
+                taskDto.name = "유재석"; taskDto.point = 100;
+                return taskDto;
+    }
+    // 즉]  String 제외한 자바의 대부분 타입은 Application/json으로 HTTP Content-type으로 설정된다.
+} // class end
+class TaskDto{ String name; int point;} // Dto
