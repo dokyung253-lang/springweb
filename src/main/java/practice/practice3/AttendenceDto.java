@@ -9,9 +9,3 @@ import lombok.NoArgsConstructor;
 @Builder // 빌더패턴(생성자 대신에 사용)
 @NoArgsConstructor
 @AllArgsConstructor // 생성자 2개
-
-public class AttendenceDto { private int ano;
-    private String studentName;
-    private String date;
-    private String status;
-}
