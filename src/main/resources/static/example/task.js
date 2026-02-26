@@ -27,5 +27,11 @@ const fun3 = ( ) => { }
         4. 사용법
 */
 // axios.HTTP메소드명( "통신할 주소" ) vs 탈렌드API; 프론트엔드가 없을 때 확인용
+// [1]
 axios.get("http://localhost:8080/day03/task")
 
+// 프론트서버와 백엔드서버가 같다면, 도메인 생략 가능
+// [2] .then( (response) => { } );
+axios
+     .delete("/day03/task?name=유재석")
+     .then( (response) => { console.log(response.data); } )
