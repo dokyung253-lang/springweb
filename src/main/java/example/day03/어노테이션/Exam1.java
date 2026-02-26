@@ -1,4 +1,4 @@
-package example.day03;
+package example.day03.어노테이션;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -50,7 +50,31 @@ public class Exam1 {
                 @ 어노테이션 활용 : 개발자는 단순한 어노테이션 전달 함으로써 내부적으로 복잡한 코드가 실행된다.
                 개발자입장                           스프링 프레임워크
                     @RestController ------------>   @RestController 추상한 구현체(클래스)들이 자동 실행 ( 동적 로딩 )
-
+            6. 동적 로딩이란? 리플렉션, 실행중에 클래스를 읽어와서 객체 생성 과정
+                Class.forName("com.mysql.cj.jdbc.Driver" ) : jdbc연동에 필요한 Driver 객체 생성한다.
         */
+
+
     }
 } // class end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
