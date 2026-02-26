@@ -18,48 +18,11 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
+dependencies {  // 외부라이브러리들을 추가하는 곳, 추가된 라이브러리는 자동으로 설치된다.
     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
     runtimeOnly 'com.mysql:mysql-connector-j'
-    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    plugins {
-        id 'java'
-        id 'org.springframework.boot' version '4.0.3'
-        id 'io.spring.dependency-management' version '1.1.7'
-    }
-
-    group = 'com.example'
-    version = '0.0.1-SNAPSHOT'
-    description = 'Demo project for Spring Boot'
-
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(17)
-        }
-    }
-
-    configurations {
-        compileOnly {
-            extendsFrom annotationProcessor
-        }
-    }
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies { // 외부라이브러리들을 추가하는 곳, 추가된 라이브러리는 자동으로 설치된다.
-        implementation 'org.springframework.boot:spring-boot-starter'
-        runtimeOnly 'com.mysql:mysql-connector-j'
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
-
-    }
-
-    tasks.named('test') {
-        useJUnitPlatform()
-    }
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {

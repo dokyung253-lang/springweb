@@ -1,5 +1,10 @@
 package example.day03.롬복;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 public class Exam3 {
     public static void main(String[] args) {
         /*
@@ -7,7 +12,7 @@ public class Exam3 {
         */
         StudentDto studentDto1 = new StudentDto();
         StudentDto studentDto2 = new StudentDto( 1, "유재석" );
-        StudentDto2.getSname();
+        studentDto2.getSname();
         studentDto2.setSname("강호동");
         studentDto2.toString();
 
