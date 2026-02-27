@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset='utf-8'>
+    <title>Title</title>
+</head>
+<body>
+    <h3>메인페이지</h3>
+    <p>http://ip주소:WAS번호/(static)이하폴더경로</p>
+
+    <h3>종합예제9</h3>
+    <div> <!-- div : 레이아웃 마크업 -->
+        <div>
+            <h3>입력구역</h3>
+            내용 : <input id = "bcontent" /><br/> <!-- input : 입력상자 마크업 -->
+            작성자: <input id = "bwriter" /><br/> <!-- id : 마크업의 고유식별명 -->
+            <button onclick = "onWrite()"> 등록하기 </button> <!--onclick : 클릭했을때 js 함수 실행-->
+        </div>
+        <div>
+            <h3>출력구역</h3>
+            <table id = "boardTable" >
+                <thead> <!-- thead : 표의 제목영역 -->
+                    <tr> <!-- tr : 표의 행 마크업 -->
+                        <th>번호</th> <th>내용</th> <th>작성자</th> <th>작성일</th> <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr>
+                        <td>1</td><td>안녕하세요</td><td>유재석</td><td>2026-02-27</td>
+                        <td><button>삭제</button><button>내용수정</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src = "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- axios cdn 설치-->
+    <script src = "index.js"></script>
+
+
+</body>
+</html>
