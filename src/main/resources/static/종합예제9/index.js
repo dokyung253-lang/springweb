@@ -7,5 +7,10 @@ const onFindAll = async ( )=> {
     let html = "";
         // 동기화 axios : 1. 현재 함수명 앞에 async 키워드 붙인다. 2. axois 앞에 await 키워드 붙인다.
         const response = await axios.get("/board"); // js에서 스프링Controller 와 통신기술
-        console.log()
+        console.data = response.data; // response : HTTP응답정보객체, response.data : 응답값
+        for( int index = 0 ; index <= data.length-1 ; index ++ ){
+        const board = data[index];
+        html += `<tr>
+                 </tr>`
+        }
 }
