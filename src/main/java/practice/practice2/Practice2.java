@@ -1,8 +1,8 @@
-package practice;
+package practice.practice2;
 
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
-    /*[실습] 제출용
+import org.springframework.web.bind.annotation.RestController;
+/*[실습] 제출용
     [문제1 요구사항] 게시판 RestController 만들기1
 -- [ 요구사항 ]
     1. AppStart 클래스 생성
@@ -36,21 +36,15 @@ import jakarta.servlet.http.HttpServlet;
     샘플 예2]
     Map<String,String> map1 = new HashMap<>();
         map1.put("bno" , "1" );
-        map1.put("btitle" , "제목1");     */
+        map1.put("btitle" , "제목1");
 
-@WebServlet("/practice2")
-public class Practice2 extends HttpServlet{
-    boolean method (int param){return true;}
+        [문제2 요구사항]  게시판 RestController 만들기2
 
 
-
-/*[문제2 요구사항]  게시판 RestController 만들기2
--- [ 요구사항]
+   [요구사항]
     https://docs.google.com/spreadsheets/d/1xEByWi1DLDDdoyxc3KOUhprNqWYk8jwBJAOrDG0Gi_U/edi
     t?usp=sharing
     1. AppStart 클래스 생성
     2. BoardController 클래스 생성
     3. 위 링크에 명세서API 에 따라서 BoardController 코드를 완성
- */
-}
-class PostController{}
+*/
