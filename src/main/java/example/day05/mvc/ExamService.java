@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ExamService {
@@ -41,6 +42,30 @@ public class ExamService {
         return false;
     }
     // D : 삭제 delete
-    // U : 추가 update
+    public boolean 삭제 (int eno){
+        // delete 대신에 JPA 함수 사용
+        // .deleteById( 삭제할 pk번호 ); 해당하는 pk가 존재하면 삭제
+        examRepository.deleteById( eno );
+        return true;
+    }
+    // U : 수정 update
+    public boolean 수정( ExamDto examDto ){
+        // update 대신 JPA 영속성 사용한다.
+        // *영속성 :데이터베이스와 자바객체 연결되는 상태를 지속적으로 유지
+        // 즉] 자바객체가 수정되면 데이터베이스도 자동 수정
+        // 1] 수정할 엔티티 찾기, pk
+        // findById( 수정할pk번호 );
+        Optional< ExamEntity > optional
+                = examRepository.findById( examDto.getEno() );
+        // 2] 만약에 엔티티가 존재(Present)하면, .isPresent() : 조회 결과가 있으면 true, 없으면 false 반환
+        if( optional.isPresent()) {
+            ExamEntity examEntity = optional.get() ; // 존재한 엔티티 꺼내기
+            // ************************************************************** //\
+            examEntity.setEname( examDto.getEname() ); // 입력받은(수정할) 값을 엔티티에 setter 이용하여 수정한다.
+            return true;
+        }
+        return false;
+    }
+
 }
 

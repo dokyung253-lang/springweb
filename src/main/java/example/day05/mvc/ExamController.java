@@ -1,10 +1,7 @@
 package example.day05.mvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,17 @@ public class ExamController {
         return result;
     }
     // D : 삭제 delete
-    // U : 추가 update
+    // http://localhost:8080/day05/exam?eno=1
+    @DeleteMapping("/day05/exam")
+    public boolean 삭제( @RequestParam int eno ){
+        boolean result = examService.삭제( eno );
+        return result;
+    }
+
+    // U : 수정 update
+    @PutMapping("/day05/exam")
+    public boolean 수정( @RequestBody ExamDto examDto ){
+    boolean result = examService.수정( examDto );
+    return result;
+    }
 }
