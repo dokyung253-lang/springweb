@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
 public class ExamService {
     @Autowired
     private ExamRepository examRepository;
@@ -52,6 +51,7 @@ public class ExamService {
     }
     // U : 수정 update
 
+    @Transactional
     public boolean 수정( ExamDto examDto ){
         // update 대신 JPA 영속성 사용한다.
         // *영속성 :데이터베이스와 자바객체 연결되는 상태를 지속적으로 유지
