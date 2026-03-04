@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column( name= "bookId")
     private Integer bookId;
 
     @Column( name = "bookTitle", length = 100, nullable = true )

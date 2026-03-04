@@ -1,6 +1,5 @@
 package practice.practice5;
 
-import example.day05.mvc.ExamDto;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +30,6 @@ public class BookService {
     // c
     public boolean 도서등록( BookDto bookDto ){
         BookEntity bookEntity = new BookEntity();
-        bookEntity.setBookId(bookDto.getBookId());
         bookEntity.setBookTitle(bookDto.getBookTitle());
         bookEntity.setBookAuthor(bookDto.getBookAuthor());
         bookEntity.setBookCompany(bookDto.getBookCompany());
@@ -56,8 +54,5 @@ public class BookService {
         return true;
     }
     return false;
-
     }
-
-
 }
