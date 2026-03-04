@@ -2,6 +2,8 @@ package example.day05.mvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,6 +20,11 @@ public class ExamController {
         return result;
     }
     // C : 쓰기 insert
+    @PostMapping("/day05/exam")
+    public boolean 저장(@RequestBody ExamDto examDto){
+        boolean result = examService.저장( examDto );
+        return result;
+    }
     // D : 삭제 delete
     // U : 추가 update
 }
