@@ -1,4 +1,9 @@
 package practice.practice6;
 
-public interface MovieRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/*[조건 4] 리포지토리 구현 : 영화 엔티티를 관리하는 리포지토리 인터페이스를 설계한다.
+JpaRepository를 상속받아 기본 CRUD 메서드를 활용할 수 있도록 구성한다.
+*/
+public interface MovieRepository extends JpaRepository< MovieRepository, Integer >{
 }
