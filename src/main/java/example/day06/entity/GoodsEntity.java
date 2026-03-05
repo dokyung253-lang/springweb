@@ -23,7 +23,7 @@ public class GoodsEntity extends BaseTime{
                 .gno( gno )         .gname(gname)
                 .gprice(gprice)     .gdesc( gdesc)
                 .createDate( getCreatable().toString() ) // .toString : 날짜를 문자형식으로
-                .updateDate( getCreatable().toString() )
+                .updateDate( getUpdatable().toString() )
                 .build();
     }
 }

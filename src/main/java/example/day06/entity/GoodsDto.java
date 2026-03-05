@@ -6,10 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+@Data @AllArgsConstructor @NoArgsConstructor @Builder
 public class GoodsDto {
     private Integer gno ;
     private String gname;
