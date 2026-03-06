@@ -27,11 +27,10 @@ public class MovieEntity extends BaseTime{
                 .director(director)
                 .releasedate(releasedate)
                 .rating(rating)
-                .createDate( getCreatable().toString() ) // .toString : 날짜를 문자형식으로
-                .updateDate( getUpdatable().toString() )
+//                .createDate(getCreateDate().toString())  // .toString : 날짜를 문자형식으로
+//                .updateDate(getUpdateDate().toString() )
                 .build();
     }
-
 }
 /*조건1  엔티티 설계 : “영화(Movie)” 정보를 저장할 엔티티 클래스를 생성한다.
 각 필드의 역할과 데이터 타입을 적절히 설정한다.
