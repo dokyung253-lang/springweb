@@ -34,13 +34,13 @@ public class BoardController {
     }
 
     // 4. 개별수정
-    @PutMapping("/board/detail")
+    @PutMapping("/board")
     public boolean 개별수정(@RequestBody BoardDto boardDto){
         return boardService.개별수정( boardDto );
     }
 
     // 5. 개별삭제
-    @DeleteMapping("/board/detail")
+    @DeleteMapping("/board")
     public boolean 개별삭제(@RequestParam int bno){
         return boardService.개별삭제(bno);
     }

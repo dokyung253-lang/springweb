@@ -5,9 +5,9 @@
     <title>Page Title</title>
 </head>
 <body>
-
     <h3> 게시물 상세 </h3>
     <a href="/종합예제10/index.html"> 뒤로가기 </a>
+
   <div id = "boardBox">
     제목 : <div> 제목이 들어갈 자리 </div>
     작성자/  : <div> 작성자가 들어갈 자리 / 작성일이 들어갈 자리 </div>
@@ -15,7 +15,21 @@
     <button onclick="개별수정()"> 수정 </button>
     <button onclick="개별삭제()"> 삭제 </button>
   </div>
+  <br/><br/><br/>
 
+  <div id="commentBox">
+    작성자   : <input class="cWriterInput" /> <br/>
+    댓글내용 : <input class="commentInput" ></input><br/>
+    <button onclick="댓글등록()"> 등록 </button>
+    <button onclick="댓글수정()"> 수정 </button>
+    <button onclick="댓글삭제()"> 삭제 </button>
+  </div>
+  <div> 
+    <span> 작성자 </span>
+    <span>작성일자/시간</span> 
+    <span> 댓글내용 </span>
+  </div>
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="detail.js"></script>
 </body>
