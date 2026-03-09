@@ -1,9 +1,11 @@
-package example.day07.연관관계;
+package practice.practice7;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
+@EnableJpaAuditing // @EntityListener랑 같이 씀, jpa 감사 기능 활성화
 public class AppStart {
     public static void main(String[] args) { SpringApplication.run(AppStart.class); }
 }
