@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import practice.practice7.course.CourseEntity;
+import practice.practice7.student.StudentEntity;
 
 @Data@AllArgsConstructor@NoArgsConstructor@Builder
 @Entity@Table(name="enroll")

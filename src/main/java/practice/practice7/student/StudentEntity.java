@@ -1,15 +1,16 @@
-package practice.practice7;
+package practice.practice7.student;
 
 
 import jakarta.persistence.*;
 import lombok.*;
+import practice.practice7.BaseTime;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data@AllArgsConstructor @NoArgsConstructor @Builder
 @Entity @Table(name="student")
-public class StudentEntity extends BaseTime  {
+public class StudentEntity extends BaseTime {
     // Student : 학생번호(studentId, PK), 학생명(studentName)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,5 +20,4 @@ public class StudentEntity extends BaseTime  {
     @OneToMany(mappedBy = "enrollEntity")
     @ToString.Exclude
     private List<StudentEntity> studentEntityList = new ArrayList<>();
-
 }

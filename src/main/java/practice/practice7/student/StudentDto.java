@@ -1,5 +1,4 @@
-package practice.practice7;
-
+package practice.practice7.student;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,10 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
-public class EnrollDto {
-    private Integer enrollId;
-    private boolean status;
+public class StudentDto {
+    private Integer studentId;
+    private String studentName;
     // baseTime
     private String createDate;
     private String updateDate;

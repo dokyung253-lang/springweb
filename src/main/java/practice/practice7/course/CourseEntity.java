@@ -1,10 +1,11 @@
-package practice.practice7;
+package practice.practice7.course;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import practice.practice7.BaseTime;
 
 import java.util.ArrayList;
 import java.util.List;
