@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @NoArgsConstructor @AllArgsConstructor @Data @Builder
 @Entity @Table( name = "board")
 public class BoardEnrtity {
@@ -19,6 +22,10 @@ public class BoardEnrtity {
     @ManyToOne
     @JoinColumn( name = "cno")
     private CategoryEntity categoryEntity;
+
+    // ** 양방향 **
+    @OneToMany(mappedBy = "boardEntity")
+    private List<ReplyEntity> replyEntityList = new ArrayList<>();
 }
 /*
 create table board(
