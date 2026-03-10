@@ -15,10 +15,10 @@ public class StudentEntity extends BaseTime {
     // Student : 학생번호(studentId, PK), 학생명(studentName)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer studentId;
-    private String studentName;
+    private Integer sid;
+    private String sname;
 
     @OneToMany(mappedBy = "studentEntity") // 양방향 : 자바에서 쓰는 거(조회용), 데이터베이스 지원 안 함, pk/fk 없음, 필드명으로 조인
-    @ToString.Exclude
+    @ToString.Exclude @Builder.Default
     private List<EnrollEntity> enrollEntityList = new ArrayList<>();
 }

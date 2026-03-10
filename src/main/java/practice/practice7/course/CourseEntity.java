@@ -1,10 +1,7 @@
 package practice.practice7.course;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import practice.practice7.BaseTime;
 import practice.practice7.EnrollEntity;
 
@@ -20,7 +17,7 @@ public class CourseEntity extends BaseTime {
     private String cname;
 
     @OneToMany(mappedBy = "courseEntity")
-    @Builder.Default // 테이블명.Builder.build는 선택임
+    @ToString.Exclude    @Builder.Default // 테이블명.Builder.build는 선택임
     private List<EnrollEntity> enrollEntityList = new ArrayList<>();
 
 }
