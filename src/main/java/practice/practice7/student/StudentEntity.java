@@ -4,6 +4,7 @@ package practice.practice7.student;
 import jakarta.persistence.*;
 import lombok.*;
 import practice.practice7.BaseTime;
+import practice.practice7.EnrollEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class StudentEntity extends BaseTime {
     private Integer studentId;
     private String studentName;
 
-    @OneToMany(mappedBy = "enrollEntity")
+    @OneToMany(mappedBy = "studentEntity") // 양방향 : 자바에서 쓰는 거(조회용), 데이터베이스 지원 안 함, pk/fk 없음, 필드명으로 조인
     @ToString.Exclude
-    private List<StudentEntity> studentEntityList = new ArrayList<>();
+    private List<EnrollEntity> enrollEntityList = new ArrayList<>();
 }

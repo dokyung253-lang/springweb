@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class StudentDto {
-    private Integer studentId;
-    private String studentName;
+    private Integer sid;
+    private String sname;
     // baseTime
     private String createDate;
     private String updateDate;

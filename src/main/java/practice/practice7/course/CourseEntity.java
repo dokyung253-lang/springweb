@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import practice.practice7.BaseTime;
+import practice.practice7.EnrollEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +16,11 @@ import java.util.List;
 public class CourseEntity extends BaseTime {
     // Course : 과정번호(courseId, PK), 과정명(courseName)
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer courseId;
-    private String courseName;
+    private Integer cid;
+    private String cname;
 
-    @OneToMany(mappedBy = "enrollEntity")
-    private List<CourseEntity> courseEntityList = new ArrayList<>();
+    @OneToMany(mappedBy = "courseEntity")
+    @Builder.Default // 테이블명.Builder.build는 선택임
+    private List<EnrollEntity> enrollEntityList = new ArrayList<>();
 
 }
