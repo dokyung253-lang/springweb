@@ -1,8 +1,6 @@
-package example.day09.chapter7.controller;
+package example.day09.chapter6.controller;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +19,8 @@ public class ExampleController {
         examplePerson.setAge(11);
         examplePerson.setHobbies(List.of("운동", "독서"));
 
-        model.addAllAttribute("person", examplePerson); // person객체 저장
-        model.addAllAttribute("today", LocalDate.now());
+        model.addAttribute("person", examplePerson); // person객체 저장
+        model.addAttribute("today", LocalDate.now());
         return "example"; // example.html라는 뷰 조회
     }
     @Data

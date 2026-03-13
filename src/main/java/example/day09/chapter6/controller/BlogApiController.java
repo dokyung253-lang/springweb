@@ -6,7 +6,6 @@ import example.day09.chapter6.dto.AddArticleRequest;
 import example.day09.chapter6.dto.UpdateArticleRequest;
 import example.day09.chapter6.service.BlogService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +14,7 @@ import java.util.List;
 
 @RestController // ioc , 빈등록, @Contoroller, @ResponseBody 포함
 @RequiredArgsConstructor
-public class BlogController {
+public class BlogApiController {
     private final BlogService blogService;
 
     @PostMapping("/api/articles")

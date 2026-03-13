@@ -11,6 +11,6 @@
 -- insert into todo( title, content, done, create_date, update_date) values( "치과 예약", "정기 검진 및 스케일링 예약", false, NOW(), NOW() );
 -- insert into todo( title, content, done, create_date, update_date) values( "기타 연습", "코드 C와 G 메이저 전환 연습", false, NOW(), NOW() );
 
-insert into article(title, content) values("테스트제목" , "테스트내용");
-insert into article(title, content) values("테스트제목2" , "테스트내용2");
-insert into article(title, content) values("테스트제목3" , "테스트내용3");
+insert into article(title, content, created_at, updated_at) values('title1', 'content1', NOW(), NOW())
+insert into article(title, content, created_at, updated_at) values('title2', 'content2', NOW(), NOW())
+insert into article(title, content, created_at, updated_at) values('title2', 'content2', NOW(), NOW())
