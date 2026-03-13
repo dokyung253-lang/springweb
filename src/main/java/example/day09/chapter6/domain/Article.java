@@ -34,6 +34,7 @@ public void update( String title, String content){
     @CreatedDate // 엔티티가 생성될 때 생성시간 저장
     @Column(name="created_at")
     private LocalDateTime createAt;
+
     @LastModifiedDate
     @Column(name="updated_at")
     private LocalDateTime updateAt;
