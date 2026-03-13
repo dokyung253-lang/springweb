@@ -1,0 +1,55 @@
+172p. : 2줄 , application.yml 과 application.properties 같은 역할 파일
+	- 스프링 서버 초기 설정 값
+-----------------------------------------------------------
+	drop database if exists mydb0313;
+	create database mydb0313;
+-----------------------------------------------------------
+	spring.datasource.url=jdbc:mysql://localhost:3306/mydb0313
+-----------------------------------------------------------
+
+172p. : 하단에 build.gradle 코드 에서 h2( 인메모리 )는 영구저장이 안된다. 그래서 mysql 사용
+	runtimeOnly 'com.mysql:mysql-connector-j'       // 2] mySQL VS H2(인메모리)
+-----------------------------------------------------------.
+
+173p. : controller, service , repository , domain 패키지(폴더) 생성
+	- AppStart 코드는 없으면 임의성 생성
+-----------------------------------------------------------
+173~176p. : Article 생성
+174p : 문단에 3줄 , 빌더 패턴을 사용하면 객체를 유연하고 직관적으로 생성 , 175p. 상단 코드 확인
+-----------------------------------------------------------
+176p. 진행후 AppStart 실행 확인한다.
+    * data.sql 사용시 기존 샘플코드는 주석처리하고 현재 엔티티의 샘픔 insert 추가한다
+    -----------------------------------------------------------
+    insert into article( title, content ) values ( "테스트제목" , "테스트내용")
+    -----------------------------------------------------------
+
+176p. 밑에서 3줄 , JpaRepository 상속받을 때 엔티티명 과 엔티티의PK타입 (제네릭타입)에 인수로 넣어준다.
+
+177p~178, dto 생성
+
+177p 밑에서 3줄 , DTO는 단순하게 데이터를 옮기기 위해 사용하는 전달자 역할
+
+178p. 첫번재 줄 , toEntity는 빌더패턴을 사용해 DTO를 엔티티로 만들어주는 함수/메소드
+
+178p. 마지막 문단 , 꼭 읽어오고 체크하기
+
+180p. 꼭 알아두면 좋을 응답코드 < 암기 필요 >
+
+180p. 하단에 API 실행 테스트하기 , application.yml생략
+181P. 포스트맨 테스트 --> Talend Api 테스트 진행
+    [ POST ]
+    http://localhost:8080/api/articles
+    { "title" : "제목" , "content" : "내용" }
+
+182~186p. 생략
+188p. DTO는 상황에 따라 여러개 생성하여 활용한다.
+    MemberDto(통합용)
+    vs
+    SignUpDto , LoginDto , findIdDto 등등
+
+188p. stream.map 대신에 forEach 방식으로 실습 진행
+
+193p. 1줄 , HTTP 에 매개변수 보내기 ,
+    방법1] GET/POST/PUT/DELETE QUERYSTRING , URL?변수명=값 , @RequestParam
+    방법2] GET/POST/PUT/DELETE pathparam , URL/{변수명}  , @PathVariable
+    방법3] POST/PUT BODY , { } , @RequestBody

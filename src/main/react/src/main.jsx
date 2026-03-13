@@ -17,7 +17,6 @@ createRoot( root ).render(<Exam2 />);
 // import Exam2 from './chapter7/Exam2.jsx';
 // createRoot( root ).render(<Exam2 />);
 
-
 // chapter6 예제
 // import Exam1 from './chapter6/Exam1.jsx';
 // createRoot(root).render(<Exam1/>);
