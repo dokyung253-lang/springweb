@@ -1,10 +1,10 @@
-package example.day09.chapter6.controller;
+package example.day09.springBootDeveloprer.controller;
 
-import example.day09.chapter6.domain.Article;
-import example.day09.chapter6.dto.ArticleResponse;
-import example.day09.chapter6.dto.AddArticleRequest;
-import example.day09.chapter6.dto.UpdateArticleRequest;
-import example.day09.chapter6.service.BlogService;
+import example.day09.springBootDeveloprer.domain.Article;
+import example.day09.springBootDeveloprer.dto.ArticleResponse;
+import example.day09.springBootDeveloprer.dto.AddArticleRequest;
+import example.day09.springBootDeveloprer.dto.UpdateArticleRequest;
+import example.day09.springBootDeveloprer.service.BlogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

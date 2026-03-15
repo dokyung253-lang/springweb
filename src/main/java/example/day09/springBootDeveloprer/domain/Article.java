@@ -1,4 +1,4 @@
-package example.day09.chapter6.domain;
+package example.day09.springBootDeveloprer.domain;
 
 import jakarta.persistence.*;
 import lombok.*;

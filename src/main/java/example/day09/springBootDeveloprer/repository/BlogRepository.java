@@ -1,6 +1,6 @@
-package example.day09.chapter6.repository;
+package example.day09.springBootDeveloprer.repository;
 
-import example.day09.chapter6.domain.Article;
+import example.day09.springBootDeveloprer.domain.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

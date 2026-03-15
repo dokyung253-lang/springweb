@@ -1,9 +1,9 @@
-package example.day09.chapter6.service;
+package example.day09.springBootDeveloprer.service;
 
-import example.day09.chapter6.domain.Article;
-import example.day09.chapter6.dto.AddArticleRequest;
-import example.day09.chapter6.dto.UpdateArticleRequest;
-import example.day09.chapter6.repository.BlogRepository;
+import example.day09.springBootDeveloprer.domain.Article;
+import example.day09.springBootDeveloprer.dto.AddArticleRequest;
+import example.day09.springBootDeveloprer.dto.UpdateArticleRequest;
+import example.day09.springBootDeveloprer.repository.BlogRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

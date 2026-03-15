@@ -1,9 +1,9 @@
-package example.day09.chapter6.controller;
+package example.day09.springBootDeveloprer.controller;
 
-import example.day09.chapter6.domain.Article;
-import example.day09.chapter6.dto.ArticleViewResponse;
-import example.day09.chapter6.service.BlogService;
-import example.day09.chapter6.dto.ArticleListViewResponse;
+import example.day09.springBootDeveloprer.domain.Article;
+import example.day09.springBootDeveloprer.dto.ArticleViewResponse;
+import example.day09.springBootDeveloprer.service.BlogService;
+import example.day09.springBootDeveloprer.dto.ArticleListViewResponse;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

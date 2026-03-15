@@ -1,4 +1,4 @@
-package example.day09.chapter6.dto;
+package example.day09.springBootDeveloprer.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

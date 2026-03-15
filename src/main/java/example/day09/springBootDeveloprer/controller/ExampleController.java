@@ -1,4 +1,4 @@
-package example.day09.chapter6.controller;
+package example.day09.springBootDeveloprer.controller;
 
 import lombok.Data;
 import org.springframework.stereotype.Controller;

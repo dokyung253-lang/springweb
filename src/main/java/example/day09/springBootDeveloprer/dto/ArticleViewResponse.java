@@ -1,6 +1,6 @@
-package example.day09.chapter6.dto;
+package example.day09.springBootDeveloprer.dto;
 
-import example.day09.chapter6.domain.Article;
+import example.day09.springBootDeveloprer.domain.Article;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
