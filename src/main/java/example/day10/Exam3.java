@@ -59,3 +59,33 @@ public class Exam3 {
 
     }// m end
 }// c end
+
+    // vs for문 (forEach 이전 일반반복문)
+    //for( int index = 0 ; index <= number.size() -1 ; index++ ){
+    //if( number.get(index) % 2 == 0 ){
+    //System.out.println("number.get(index)  = " + number.get(index) );
+    //}
+    //}
+
+/*
+        / ====================== Entity List -> Dto List =========================
+        List<BoardDto> list = new ArrayList<>(); // 여러개 dto 담는 리스트
+        for( int i = 0 ; i<=entityList.size()-1; i++ ){
+            BoardDto boardDto = entityList.get(i).toDto();
+            list.add( boardDto );
+        }
+        // vs
+        List<BoardDto> list = new ArrayList<>(); // 여러개 dto 담는 리스트
+        entityList.forEach( entity -> {  // 리스트변수명.forEach( 반복변수 -> { 실행문; } );
+            BoardDto boardDto = entity.toDto(); // 3] 엔티티 하나씩 dto로 변환
+            list.add( boardDto ); // 4] 새로운 리스트에 담기
+        } );
+
+        // vs
+        List<BoardDto> list =
+                entityList.stream().map( entity -> entity.toDto() ).collect( Collectors.toList() );
+
+       // vs
+       List<BoardDto> list =
+                entityList.stream().map( entity :: toDto ).collect( Collectors.toList() );
+ */
