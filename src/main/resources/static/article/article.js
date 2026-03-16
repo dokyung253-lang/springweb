@@ -10,7 +10,7 @@ if(deleteButton){
         alert('삭제가 완료되었습니다.');
         location.replace('/articles');
     });
-});
+  });
 }
 
 // 수정기능
@@ -36,6 +36,7 @@ if(modifyButton){
             alert('수정이 완료되었습니다.');
             location.replace(`/articles/${id}`);
     });
+  });
 }
 
 // 등록기능
