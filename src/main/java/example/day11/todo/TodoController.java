@@ -1,0 +1,81 @@
+package example.day11.todo;
+
+import example.day11.todo.dto.TodoDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/todo")
+public class TodoController {
+    private final TodoService todoService;
+
+    // 1. 전체조회
+    @GetMapping("")
+    public ResponseEntity< ? > findAll(){
+        List<TodoDto> result = todoService.findAll();
+        return ResponseEntity.status(200).body( result ); // Http응답코드 200 또는 ok (성공)
+    }
+
+    // 2. 개별조회
+    @GetMapping("/detail")
+    public ResponseEntity< ? > findById(@RequestParam int id){
+        TodoDto result = todoService.findById(id);
+        return ResponseEntity.status(200).body(result);
+    }
+
+    // 3. title 개별조회
+    @GetMapping("/query1")
+    public ResponseEntity<?> query1(
+            @RequestParam String title){
+        TodoDto result = todoService.query1( title );
+        return ResponseEntity.ok(result);
+    }
+
+    // 4. title 과 content 개별조회
+    @GetMapping("/query2")
+    public ResponseEntity<?> query2(
+            @RequestParam String title,
+            @RequestParam String content ){
+        Map<String, Object> result =
+                todoService.query2(title, content);
+        return ResponseEntity.status(200).body(result);
+    }
+
+    // 5. title이 포함된 개별조회
+    @GetMapping("/query3")
+    public ResponseEntity<?> query3(@RequestParam String title){
+        List<TodoDto> result = todoService.query3(title);
+        return ResponseEntity.status(200).body(result);
+    }
+
+    // 6. 페이징처리 // http://localhost:8080/api/todo/page?page=1&size=3
+    @GetMapping("/page")
+    public ResponseEntity<?> page(
+              @RequestParam int page // page는 조회할 현재페이지 번호
+            , @RequestParam int size ){ // size는 페이지 당 조회할 엔티티 개수
+        return ResponseEntity.ok( todoService.page( page, size ) );
+
+    }
+
+    // 7. 페이징처리2
+    @GetMapping("/page2")
+    public ResponseEntity<?> page2(
+            @RequestParam String keyword, // 검색어
+            @RequestParam( defaultValue = "1") int page,
+            @RequestParam( defaultValue = "3") int size ){
+            // defaultValue 는 쿼리스트링 값이 존재하지 않으면 초기값
+        return ResponseEntity.ok( todoService.page2(keyword, page, size) );
+
+    }
+
+
+}
+// RepositoryEntity : 응답객체, 사용목적 : 반환값 외 추가적인 자료 포함 <응답코드>
+// < > : 제네릭 , <?> 제네릭에 ?타입 사용 시 Object와 동일하게 모든 타입을 대입 가능
+// public RepositoryEntity<Integer> : Integer 타입만 반환
+// public RepositoryEntity<?> : 모든 타입 반환
