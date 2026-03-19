@@ -21,12 +21,14 @@ repositories {
 dependencies { // 외부 라이브러리 들을 추가하는 곳, 추가된 라이브러리는 자동으로 설치된다.
     implementation 'org.springframework.boot:spring-boot-starter-webmvc' // 1. SpringBoot Web 설치
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // 4. JPA
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // thymeleaf
     runtimeOnly 'com.mysql:mysql-connector-j' // 2. mySQL; 영구저장 됨 // vs h2; 영구저장 안 됨
     compileOnly 'org.projectlombok:lombok' //3. lombok
     annotationProcessor 'org.projectlombok:lombok' // 3. lombok
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test' //
     implementation 'org.jsoup:jsoup:1.21.2' // 5. Jsoup ( 정적페이지 크롤링 )
+    implementation 'org.seleniumhq.selenium:selenium-java:4.35.0'    // 6. 셀레니움(동적페이지 크롤링)
+    implementation 'io.github.bonigarcia:webdrivermanager:6.3.1' // 7. 셀레니움( 크롬브라우저 조작)
 }
 
 tasks.named('test') {
