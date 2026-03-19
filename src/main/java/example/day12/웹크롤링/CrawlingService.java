@@ -116,8 +116,8 @@ public class CrawlingService {
         WebDriverManager.chromedriver().setup();        // 1] 크롬 설치
         String url = "https://cgv.co.kr/cnm/cgvChart/movieChart/30000994"; // 2] 웹 크롤링할 주소
         ChromeOptions options = new ChromeOptions(); //
-        options.addArguments("--headless=new", "--disable-gpu"); // 3] 크롬 백그라운드 실행
-        WebDriver webDriver = new ChromeDriver(); // 3] 크롬 객체
+        // options.addArguments("--headless=new", "--disable-gpu"); // 3] 크롬 백그라운드 실행
+        WebDriver webDriver = new ChromeDriver(options); // 3] 크롬 객체
         webDriver.get(url); // 4] 크롬 객체 내 크롤링 url 대입
 
         //**** 자바에서 JS 제어하여 스크롤 내리는 작업 ****
