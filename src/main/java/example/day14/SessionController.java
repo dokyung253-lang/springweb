@@ -54,7 +54,7 @@ public class SessionController {
     @DeleteMapping("")
     public ResponseEntity<?> test3(HttpSession session){ // 매개변수로 HttpSession 받는다.
         // 방법1) 세션 전체 초기화
-        session.invalidate(); // 세션객체 내 모든 속성 제거
+        //session.invalidate(); // 세션객체 내 모든 속성 제거
         // 방법2) 특정 속성 초기화
         session.removeAttribute("data");
 
@@ -83,4 +83,8 @@ public class SessionController {
         3. 주요메소드
             1) .setAttribute( "속섬명", 값 );  : 세션객체 내 속성명과 속성값 저장, 주로 로그인 상태/정보
             2) .getAttribute( "속성명" );      : 세션객체 내 이용한 속성값 호출, *Object로 반환*
+            3) .removeAttribute("속성명");     : 세션객체 내 특정한 속성 삭제
+
+
+    영구저장(DataBase) vs 실시간/사용자마다 저장(세션)
  */
