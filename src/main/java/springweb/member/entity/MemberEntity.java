@@ -2,10 +2,11 @@ package springweb.member.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import springweb.member.dto.MemberDto;
 
 @Entity @Table( name = "member")
 @NoArgsConstructor @AllArgsConstructor @Data @Builder
-public class MemberEntity {
+public class MemberEntity extends BaseTime{
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long mno; // 회원번호
@@ -18,4 +19,16 @@ public class MemberEntity {
 
     @Column( nullable = false, length = 30)
     private String mname; // 회원닉네임
+
+    // + Entity --> Dto , 주로 조회할 때 사용
+    public MemberDto toDto(){
+        return MemberDto.builder()
+                .mno( mno )
+                .mid( mid )
+                //.mpwd( mpwd ) // 주로 패스워드는 DTO로 반환하지 않는다.
+                .mname( mname )
+                .createDate( getCreateDate().toString() )
+                .updateDate( getUpdateDate().toString() )
+                .build();
+    }
 }

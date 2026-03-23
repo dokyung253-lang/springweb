@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
+import springweb.member.entity.MemberEntity;
 
 @NoArgsConstructor@AllArgsConstructor@Data@Builder
 public class MemberDto {
@@ -18,7 +19,15 @@ public class MemberDto {
     private String mname; // 회원닉네임
 
     // BaseTime 멤버변수
-    private String CreatedDate;
-    private String UpdatedDate;
+    private String createDate;
+    private String updateDate;
 
+    // DTO -> Entity , 주로 저장/수정일 때 사용
+    public MemberEntity toEntity(){
+        return MemberEntity.builder()
+                .mid(mid)
+                .mpwd(mpwd)
+                .mname(mname)
+                .build();
+    }
 }

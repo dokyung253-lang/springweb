@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @EntityListeners( AuditingEntityListener.class ) // 4) 해당 엔티티 자동 감시 적용
 public class BaseTime {
     @CreatedDate        // 3) 엔티티 생성날짜/시간 주입
-    private LocalDateTime creatable;
+    private LocalDateTime createDate;
     @LastModifiedDate   // 4) 엔티티 수정날짜/시간 주입
-    private LocalDateTime updatable;
+    private LocalDateTime updateDate;
 }
