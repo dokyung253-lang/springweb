@@ -33,7 +33,6 @@ public class MemberService {
 
     // [2] 로그인
     public boolean login( MemberDto loginDto ){
-        // 1] JPA으로 아이디로 엔티티 찾기, sql로 아이디/비밀번호 일치 여부로 로그인 판단 불가능
         Optional<MemberEntity> optionalMember =
                 memberRepository.findByMid( loginDto.getMid() );
         //2] 만약에 조회된 엔티티가 존재하면

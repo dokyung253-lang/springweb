@@ -1,4 +1,4 @@
-package springweb.member.entity;
+package springweb.board.entity;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

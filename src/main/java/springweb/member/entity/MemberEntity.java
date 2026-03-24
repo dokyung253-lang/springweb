@@ -2,11 +2,12 @@ package springweb.member.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import springweb.board.entity.BaseTime;
 import springweb.member.dto.MemberDto;
 
 @Entity @Table( name = "member")
 @NoArgsConstructor @AllArgsConstructor @Data @Builder
-public class MemberEntity extends BaseTime{
+public class MemberEntity extends BaseTime {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long mno; // 회원번호
