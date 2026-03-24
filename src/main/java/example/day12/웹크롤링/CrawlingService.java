@@ -140,7 +140,7 @@ public class CrawlingService {
             System.out.println(elements); // 확인용
             for (WebElement element : elements) {
                 System.out.println(element);// 확인용
-                // 만약에 리스트에 없ㅇ는 리뷰이면 리스트 추가, 아니면 추가 안한다.
+                // 만약에 리스트에 없는 리뷰이면 리스트 추가, 아니면 추가 안한다.
                 String review = element.getText();
                 if (list.contains(review)) {
                     continue;
