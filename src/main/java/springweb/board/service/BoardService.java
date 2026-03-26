@@ -15,7 +15,7 @@ import java.util.Optional;
 public class BoardService {
     private final BoardRepository boardRepository;
     private final MemberRepository memberRepository;
-
+    private final FileService fileService;
     // [1] 글쓰기
     public boolean write ( BoardDto boardDto, String loginMid ){
         BoardEntity saveEntity = boardDto.toEntity(); // 1] dto --> entity 변환한다.
@@ -27,6 +27,11 @@ public class BoardService {
         }
         // 저장할 게시물 엔티티에 set 참조 엔티티(회원엔티티)
         saveEntity.setMemberEntity(entityOptional.get() );
+
+        // ++++++++++++++++ 최종 DB에 엔티티를 save 하기 전에 첨부파일이 존재하면 업로드 +++++++++++++++ //
+        String fileName = fileService.upload( boardDto.getUploadFile() ); // dto내 multipartFile 저장한다.
+        // 만약에 업로드 했다면 저장할 엔티티에 업로드된 파일명 저장하기
+        if ( fileName != null ){ saveEntity.setBfile( fileName );}
 
         BoardEntity savedEntity = boardRepository.save( saveEntity ); // 2] entity 저장
         if( savedEntity.getBno() > 0 ){ return  true;}

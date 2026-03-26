@@ -1,8 +1,7 @@
-package example.day16;
+package springweb.board.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -41,7 +40,7 @@ public class FileService {
         File uploadRealPath = new File(uploadDir + fileName); // 파일명과 경로 연결해서 최종적인 경로 파일객체 생성
         try {
             uploadFile.transferTo(uploadRealPath); // 업로드파일을 특정한 경로에 전달 * 예외처리 항상 발생 *
-            return fileName;
+            return fileName; // 업로드된 파일은 DB에 저장한다.
         } catch (IOException e) {
             System.out.println(e);
         }
