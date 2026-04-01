@@ -1,7 +1,6 @@
 package example.day11.todo;
 
 import example.day11.todo.dto.TodoDto;
-import example.day11.todo.entity.BaseTime;
 import example.day11.todo.entity.TodoEntity;
 import example.day11.todo.repository.TodoRepository;
 import jakarta.transaction.Transactional;
