@@ -9,6 +9,7 @@ import springweb.member.service.MemberService;
 
 @RestController @RequiredArgsConstructor
 @RequestMapping("/api/member2")
+@CrossOrigin( value = "http://localhost:5173", exposedHeaders = "Authorization")
 public class MemberController2 {
     private final MemberService memberService;
     private final JWTService jwtService; //jwt 기능 객체
@@ -21,7 +22,8 @@ public class MemberController2 {
         boolean result = memberService.login(loginDto);
         // 1] 만약에 로그인을 성공했으면
         if(result) {
-            String token = jwtService.createToken(loginDto.getMid() ); // 2] 로그인 성공한 정보(아이디) 토큰에 저장
+            // 2] 로그인 성공한 정보(아이디) 토큰에 저장
+            String token = jwtService.createToken(loginDto.getMid() );
             return ResponseEntity.ok() // 3] 토큰은 세션에 클라이언트(front)에 저장(외부로 나감), 세션은 내부 저장(내부, 장]더 안전, 단]서버 과부하, 모바일 불가. 웹/앱 통합용 토큰 쓰면 해결됨)
                     .header( "Authorization" , "Bearer " + token) // Http 통신의 부가정보 담는 구역 (주로 인증정보 포함)
                     // 클라이언트에게 헤더에 발급받은 jwt토큰 반환한다. Bearer 토큰(띄어쓰기 주의, 추후 삭제예정, 하는 이유 : 관례적)

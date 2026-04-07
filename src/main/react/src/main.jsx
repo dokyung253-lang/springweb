@@ -5,14 +5,32 @@ import { createRoot } from 'react-dom/client'
 //  index.html(싱글페이지) 에서 root라는 id 갖는 div 요소 호출
 const root = document.querySelector('#root');
 
-// chapter 12 예제
-import App from './chapter12/App'; 
-import { BrowserRouter } from 'react-router-dom';
+// reactweb
+import App from './reactweb/App'
+import {BrowserRouter} from 'react-router-dom'
 createRoot(root).render(
     <BrowserRouter>
         <App/>
     </BrowserRouter>
 )
+
+// practive 1
+// import App from './sr practice1/App'
+// import {BrowserRouter} from 'react-router-dom'
+// createRoot(root).render(
+//     <BrowserRouter>
+//         <App/>
+//     </BrowserRouter>
+// )
+
+// chapter 12 예제
+// import App from './chapter12/App'; 
+// import { BrowserRouter } from 'react-router-dom';
+// createRoot(root).render(
+//     <BrowserRouter>
+//         <App/>
+//     </BrowserRouter>
+// )
 
 // chapter 11 예제
 // import Exam2 from './chapter11/Exam2.jsx';

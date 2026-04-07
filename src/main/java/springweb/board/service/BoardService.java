@@ -2,13 +2,18 @@ package springweb.board.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import springweb.board.dto.BoardDto;
 import springweb.board.entity.BoardEntity;
 import springweb.board.repository.BoardRepository;
 import springweb.member.entity.MemberEntity;
 import springweb.member.repository.MemberRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service @Transactional @RequiredArgsConstructor
@@ -36,5 +41,21 @@ public class BoardService {
         BoardEntity savedEntity = boardRepository.save( saveEntity ); // 2] entity 저장
         if( savedEntity.getBno() > 0 ){ return  true;}
         else{ return false; }
+    }
+
+    // [2] 전체조회
+    public List<BoardDto> findAll( ){
+        return boardRepository.findAll( Sort.by(Sort.Direction.DESC , "bno")) // .findAll( 페이징, 정렬 ) 전체조회
+                .stream() // .stream()이란 ? 여러개의자료를 갖는 자료(리스트/배열) 들의 순차적 처리 지원 함수
+                // .filter( boardEntity -> {return boardEntity.toDto();})
+                // map( BoardEntity -> {return }; // map(반복변수 -> return 실행문)
+                .map( BoardEntity :: toDto ) // '메소드 레퍼런스'란? 화살표 함수 간결하게 사용하는 방법 , 클래스명 :: 함수명
+                .toList(); // 리스트 타입으로 반환
+    }
+    // [3] 개별조회
+    public BoardDto findById(Long bno){
+        return boardRepository.findById(bno)
+                .orElse(null)
+                .toDto();
     }
 }
