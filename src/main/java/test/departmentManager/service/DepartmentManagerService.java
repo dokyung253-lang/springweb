@@ -11,7 +11,7 @@ import test.departmentManager.repository.DepartmentManagerRepository;
 
 import java.util.List;
 
-@Service @RequiredArgsConstructor @Transactional
+@Service @RequiredArgsConstructor
 public class DepartmentManagerService {
     private final DepartmentManagerRepository departmentManagerRepository;
 
@@ -23,11 +23,25 @@ public class DepartmentManagerService {
         return false;
     }
     // 부서 전체조회
-    public List<DepartmentManagerDto> findAll() {
+    public List<DepartmentManagerDto> GetDepartment() {
         return departmentManagerRepository.findAll()
                 .stream()
                 .map(DepartmentManagerEntity::toDto)
                 .toList();
+    }
+
+    // 부서 수정
+    @Transactional
+    public DepartmentManagerDto updateDepartment (Long dno, DepartmentManagerDto request){
+        DepartmentManagerEntity entity = departmentManagerRepository.findById(dno).orElseThrow();
+        entity.setDname(request.getDname());
+    return entity.toDto();
+    }
+
+    // 부서 삭제
+    public void deleteDepartment( Long dno ){
+        DepartmentManagerEntity department = departmentManagerRepository.findById(dno).orElseThrow();
+         departmentManagerRepository.delete(department);
     }
 }
 
