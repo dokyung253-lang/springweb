@@ -5,6 +5,7 @@ import Write from "./pages/board/write";
 import Signup from "./pages/member/signup";
 import Board from "./pages/board/Board";
 import View from "./pages/board/view";
+import Chat from "./pages/chat/Chat";
 
 export default function App( props ){
     return (
@@ -18,6 +19,7 @@ export default function App( props ){
                 <Route path="/board/write" element={ <Write />} />
                 <Route path="/board" element={ <Board /> } />
                 <Route path="/board/View" element={ <View /> } /> { /* :bno -> URL 파라미터 , 게시물 번호 */ }
+                <Route path="/chat" element={ <Chat /> } />
             </Routes>
             { /* 푸터 */ }
         </div>
